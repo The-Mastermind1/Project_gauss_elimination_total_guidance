@@ -32,7 +32,7 @@ int main() {
 					break;
 				}
 			}
-			if (row1 == k) {
+			if (row2 == k) {
 				std::cout << "error\n";
 				std::exit(EXIT_FAILURE);
 
