@@ -42,6 +42,9 @@ int main() {
 			std::vector<double>c = a[row1];
 			a[row1] = a[row2];
 			a[row2] = c;
+			double temp = b[row1];
+	                b[row1] = b[row2];
+	                b[row2] = temp;
 		}
 		for (size_t i = k + 1; i < a.size(); i++) {
 			double kati = a[i][k] / a[k][k];
