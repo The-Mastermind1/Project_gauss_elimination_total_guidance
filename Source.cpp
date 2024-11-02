@@ -57,21 +57,15 @@ int main() {
 	}
 	printmatrix(a, b);
 	std::vector <double>x(size);
-	for (size_t k = a.size() - 1; k > 0; k--) {
-		if (k == 1) {
-			x[k] = b[k];
-			for (size_t j = k + 1; j < a.size(); j++) {
-				x[k] = (x[k] - a[k][j] * x[j]);
-			}
-			x[k] = x[k] / a[k][k];
-
-			x[0] = b[0];
-			for (size_t j = 0 + 1; j < a.size(); j++) {
-				x[0] = (x[0] - a[0][j] * x[j]);
-			}
-			x[0] = x[0] / a[0][0];
-			break;
+	for (int k = a.size() - 1; k >= 0; k--) {
+	
+		x[k] = b[k];
+		for (int j = k + 1; j < a.size(); j++) {
+			x[k] = (x[k] - a[k][j] * x[j]);
 		}
-	}
+		x[k] = x[k] / a[k][k];
+
+		
+        }
 	printsolution(x);
 }
