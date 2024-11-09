@@ -2,9 +2,10 @@
 
 int main() {
 
-	std::cout << "give a  size\n";
+std::cout << "give a  size\n";
 std::size_t size;
 std::cin >> size;
+assert(size > 0);
 std::vector <std::vector<double>>a(size);
 std::vector<double>b{};
 std::cout << "elements for A\n";
@@ -60,16 +61,29 @@ for (size_t k = 0; k < a.size(); k++) {
 
 }
 printmatrix(a, b);
+if (a[a.size() - 1][a.size() - 1] == 0) {
+	std::cout << "error\m";
+	std::exit(EXIT_FAILURE);
+}
 std::vector <double>x(size);
-for (int k = a.size() - 1; k >= 0; k--) {
+for (size_t k = a.size() - 1; k > 0; k--) {
 
 	x[k] = b[k];
-	for (int j = k + 1; j < a.size(); j++) {
+	for (size_t j = k + 1; j < a.size(); j++) {
 		x[k] = (x[k] - a[k][j] * x[j]);
 	}
 	x[k] = x[k] / a[k][k];
 
 
+}
+size_t k = 0;
+while (k == 0) {
+	x[k] = b[k];
+	for (size_t j = k + 1; j < a.size(); j++) {
+		x[k] = (x[k] - a[k][j] * x[j]);
+	}
+	x[k] = x[k] / a[k][k];
+	k = 1;
 }
 printsolution(x);
 verification(u, x);
