@@ -83,7 +83,7 @@ while (k == 0) {
 		x[k] = (x[k] - a[k][j] * x[j]);
 	}
 	x[k] = x[k] / a[k][k];
-	k = 1;
+	break;
 }
 printsolution(x);
 verification(u, x);
